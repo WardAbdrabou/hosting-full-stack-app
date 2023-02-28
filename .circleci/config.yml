@@ -41,8 +41,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-            printenv > www/.env
-            npm run archive
+
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -67,14 +66,5 @@ workflows:
     jobs:
       - build
       - deploy
-      - hold:
-          filters:
-            branches:
-              only:
-                - master
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
+      
+      
