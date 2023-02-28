@@ -30,11 +30,19 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+      - run:
+          name: Front-End Deploy
+          command: |
+            npm run frontend:deploy
+            aws s3 cp --recursive --acl public-read ./www $ward-udagram
+
       # TODO: Build the backend API      
       - run:
           name: API Build
           command: |
             npm run api:build
+            printenv > www/.env
+            npm run archive
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -47,9 +55,15 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
+          name: Install AWS EB
+          command: |
+            npm run api:aws-eb
+      - run:
           name: Deploy App
           command: |
-            npm run frontend:deploy
+            aws s3 cp ./www/Archive.zip $ward-udagram
+            aws elasticbeanstalk create-application-version --application-name $APP_EB --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$bucket_Eb",S3Key="Archive.zip"
+            aws elasticbeanstalk update-environment --application-name $APP_EB --environment-name $env_eb --version-label <<pipeline.git.revision>>
 workflows:
   udagram:
     jobs:
