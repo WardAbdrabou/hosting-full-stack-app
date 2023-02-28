@@ -15,16 +15,11 @@ jobs:
       - run:
           name: Install Front-End Dependencies
           command: |
-            echo "NODE --version" 
-            echo $(node --version)
-            echo "NPM --version" 
-            echo $(npm --version)
             npm run frontend:install
-      # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
           command: |
-           npm api:install
+            npm run api:install
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
