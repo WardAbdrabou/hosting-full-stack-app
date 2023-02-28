@@ -34,7 +34,7 @@ jobs:
           name: Front-End Deploy
           command: |
             npm run frontend:deploy
-            aws s3 cp --recursive --acl public-read ./www $ward-udagram
+            
 
       # TODO: Build the backend API      
       - run:
@@ -61,9 +61,7 @@ jobs:
       - run:
           name: Deploy App
           command: |
-            aws s3 cp ./www/Archive.zip $ward-udagram
-            aws elasticbeanstalk create-application-version --application-name $APP_EB --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$bucket_Eb",S3Key="Archive.zip"
-            aws elasticbeanstalk update-environment --application-name $APP_EB --environment-name $env_eb --version-label <<pipeline.git.revision>>
+            npm run api:deploy
 workflows:
   udagram:
     jobs:
