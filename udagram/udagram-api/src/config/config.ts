@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import { NUMBER } from "sequelize";
+//import { NUMBER } from "sequelize";
 dotenv.config();
 
 // ENV variables 
@@ -12,13 +12,14 @@ export const config = {
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   host: process.env.POSTGRES_HOST,
-  dbport:Number(process.env.DB_PORT),
+  dbPort:Number(process.env.DB_PORT),
   port:Number(process.env.PORT),
+  dialect:"postgres",
   aws_region: process.env.AWS_REGION,
   aws_profile: process.env.AWS_PROFILE,
   aws_media_bucket: process.env.AWS_BUCKET,
-  myAccessKeyId : process.env.AWS_ACCESS_KEY_ID,
-  mySecretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
+  //myAccessKeyId : process.env.AWS_ACCESS_KEY_ID,
+  //mySecretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
   url: process.env.URL,
   jwt: {
     secret: process.env.JWT_SECRET,
