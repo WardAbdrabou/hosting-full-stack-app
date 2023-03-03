@@ -46,10 +46,10 @@ aws-cli-cred-setup:
           command: |
             npm run frontend:build
 
-      - run:
-          name: Front-End Deploy
-          command: |
-            npm run frontend:Deploy
+      #- run:
+      #    name: Front-End Deploy
+       #   command: |
+       #     npm run frontend:Deploy
 
       # TODO: Install dependencies in the the backend API          
       - run:
