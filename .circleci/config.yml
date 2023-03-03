@@ -15,7 +15,7 @@ aws-cli-cred-setup:
           aws-secret-access-key: "NBGDpc7tp/1fb8HcoALwDPLcwNNEqS6F4rDqWa8b"
           aws-region: "us-east-1"
 
-  build-and-Deploy:
+  build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
@@ -95,7 +95,9 @@ workflows:
     jobs:
     - aws-cli-cred-setup:
           context: aws
-    - build-and-Deploy 
+
+    - build
+    - deploy
 
       #- hold:
           filters:
