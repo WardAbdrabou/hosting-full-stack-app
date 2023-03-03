@@ -96,8 +96,7 @@ workflows:
     - aws-cli-cred-setup:
           context: aws
 
-    - build
-    - deploy
+    - build-and-deploy
 
       #- hold:
           filters:
