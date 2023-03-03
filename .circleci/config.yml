@@ -11,9 +11,9 @@ aws-cli-cred-setup:
     executor: aws-cli/default
     steps:
       - aws-cli/setup:
-          aws-access-key-id: AKIAXDOACMYPLG77BGIN
-          aws-secret-access-key: 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
-          aws-region: us-east-1
+          aws-access-key-id: "AKIAXDOACMYPLG77BGIN"
+          aws-secret-access-key: "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"
+          aws-region: "us-east-1"
 
   build-and-Deploy:
     docker:
