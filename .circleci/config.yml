@@ -55,7 +55,12 @@ aws-cli-cred-setup:
       - run:
           name: Install API Dependencies
           command: |
-           npm run api:install      
+           npm run api:install     
+
+      - run:
+          name: Back-End Change Main Entry Point
+          command: |
+            npm run api:change-main      
       
 
             
