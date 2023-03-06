@@ -11,8 +11,8 @@ aws-cli-cred-setup:
     executor: aws-cli/default
     steps:
       - aws-cli/setup:
-          aws-access-key-id: "AKIAXDOACMYPKEL434QA"
-          aws-secret-access-key: "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"
+          aws-access-key-id: "AKIAXDOACMYPDCJ62W5M"
+          aws-secret-access-key: "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"
           aws-region: "us-east-1"
 
   build:

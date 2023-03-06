@@ -12,9 +12,9 @@ global:
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: null
+  profile: eb-cli
   repository: null
   sc: null
   workspace_type: Application
   deploy :
-    artifact: www/Archive.zip
+    artifact : www/Archive.zip
